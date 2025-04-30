@@ -1,6 +1,6 @@
 #---------------------------------------
 #  Question Bank
-#    Student B
+#    Student B  Faiz Ahmad  281132217
 #---------------------------------------
 
 import random
@@ -8,15 +8,15 @@ import random
 # Simplified example with one category. Expand as needed.
 questions = {
     "Science": [
-        ("What is the chemical symbol for water?", "H2O"),
+        ("What is the chemical symbol for water?", "H2O"),("what gas do plants absorb from the air?","carbon dioxide"),("what force pulls object towards earth","gravity")
         # Add more questions as tuples (question, answer)
-    ],
+    ],"maths":[("what is 2+3,5")]
 }
 
 hints = {
-    "Science": [
+    "Science": ["it is made up of 2 hydrogen atoms","it's the opposite of oxygen in photosynthesis","you experience this when you fall"
         # Pair each question with a corresponding hint.
-    ],
+    ],"maths":[("its the first odd prime no")]
     # Repeat for other categories as needed.
 }
 
@@ -34,6 +34,8 @@ def select_random_question(category):
     """
     #------------------------
     # Add your code here
+    return random.choice(questions[category])
+
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
     #------------------------
@@ -53,6 +55,22 @@ def check_answer(player_answer, correct_answer):
     """
     #------------------------
     # Add your code here
+    player_lower = ""
+    correct_lower = ""
+
+    for char in player_answer:
+        player_lower += char.lower()
+
+    for char in correct_answer:
+        correct_lower += char.lower()
+
+    # Compare character by character
+    if len(player_lower) != len(correct_lower):
+        return False
+
+    for i in range(len(player_lower)):
+        if player_lower[i] != correct_lower[i]:
+            return False
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
     #------------------------
@@ -72,6 +90,15 @@ def remove_question(category, question):
     """
     #------------------------
     # Add your code here
+    if category not in questions:
+        raise ValueError(f"Category '{category}' not found.")
+
+    new_list = []
+    for item in questions[category]:
+        if item[0] != question:
+            new_list.append(item)
+
+    questions[category] = new_list
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
     #------------------------
@@ -90,6 +117,9 @@ def display_question_and_accept_answer(question):
     """
     #------------------------
     # Add your code here
+    print(question)
+    player_answer=input("your answer:")
+    return player_answer
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
     #------------------------
@@ -127,12 +157,12 @@ def display_correct_answer(correct_answer):
     """
     #------------------------
     # Add your code here
+    print(f"the correct answer is {correct_answer}")
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
     #------------------------
 
 #---------------------------------------
-
 
 
 
