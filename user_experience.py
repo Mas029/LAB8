@@ -1,6 +1,6 @@
 #---------------------------------------
 #  User Experience
-#    Student C
+#    Student C     MUHAMMAD SHAWAL AHMAD
 #---------------------------------------
 
 
@@ -16,6 +16,14 @@ def choose_difficulty():
     """
     #------------------------
     # Add your code here
+    print("Enter difficulty: easy, medium, hard")
+    difficulty=input()
+    if difficulty=='easy':
+        return 'easy'
+    elif difficulty=='medium':
+        return 'medium'
+    elif difficulty=='hard':
+        return 'hard'
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
     #------------------------
@@ -35,6 +43,11 @@ def display_leaderboard(leaderboard):
     """
     #------------------------
     # Add your code here
+    if len(leaderboard)==0:
+        print("There is no score yet")
+    else:
+        print("Leaderboard")
+    
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
     #------------------------
@@ -93,6 +106,10 @@ def provide_feedback(is_correct):
     """
     #------------------------
     # Add your code here
+    if is_correct:
+        print("Great job!")
+    else:
+        print("Try again!")
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
     #------------------------
@@ -134,11 +151,16 @@ def skip_question(allowed_skips):
     """
     #------------------------
     # Add your code here
+    if allowed_skips>0:
+        print("Quesion skipped")
+    else:
+        print("You have already use your one skip question")
     #------------------------
     raise NotImplementedError("This function is not implemented yet.")
     #------------------------
 
 #---------------------------------------
+
 
 
 
